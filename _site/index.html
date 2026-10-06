@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Group names here">
+<meta name="author" content="Vidhi, Sadiya, Madhumita, Dheemant">
 
 <title>Group 1 — Clinic bodies – My Wall - Vidhi</title>
 <style>
@@ -157,7 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#spine" id="toc-spine" class="nav-link active" data-scroll-target="#spine">Spine</a></li>
   <li><a href="#introduction-the-tables-we-own" id="toc-introduction-the-tables-we-own" class="nav-link" data-scroll-target="#introduction-the-tables-we-own">Introduction — the tables we own</a></li>
-  <li><a href="#panel-a-body-measure" id="toc-panel-a-body-measure" class="nav-link" data-scroll-target="#panel-a-body-measure">Panel A — Body / Measure</a></li>
+  <li><a href="#panel-a-body-measure" id="toc-panel-a-body-measure" class="nav-link" data-scroll-target="#panel-a-body-measure">Panel A — body / measure</a></li>
   <li><a href="#panel-b-category-talk" id="toc-panel-b-category-talk" class="nav-link" data-scroll-target="#panel-b-category-talk">Panel B — category / talk</a></li>
   <li><a href="#panel-c-place" id="toc-panel-c-place" class="nav-link" data-scroll-target="#panel-c-place">Panel C — place</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
@@ -180,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Group names here </p>
+             <p>Vidhi, Sadiya, Madhumita, Dheemant </p>
           </div>
   </div>
     
@@ -196,9 +196,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="spine" class="level1">
 <h1>Spine</h1>
 <blockquote class="blockquote">
-<p>Who is well in the clinic, who is labelled ill, and where does infant death still sit on the map?</p>
+<p>Who is well in the clinic, who is labelled ill, and where does infant death still sit on the map? Both panels together show who in the clinic is labelled ill: how heart disease splits across sex and chest-pain type, and whether high blood sugar and exercise-induced angina go together more than chance would predict.</p>
 </blockquote>
-<p>This sentence stays at the top. Every panel must attach to it. If a plot cannot be introduced in a clause that hangs off this line, it is off the wall.</p>
 </section>
 <section id="introduction-the-tables-we-own" class="level1">
 <h1>Introduction — the tables we own</h1>
@@ -269,9 +268,24 @@ The following object is masked from 'package:mosaic':
 
     n_missing</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vcd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: grid
+
+Attaching package: 'vcd'
+
+The following object is masked from 'package:mosaic':
+
+    mplot</code></pre>
 </div>
+</div>
+<p>Found tables train the mark. A campus Free Hunch, if we collect one, is a <strong>made</strong> panel of the same pair type — new people, old grammar. It does not replace A, B, or C.</p>
+</section>
+<section id="panel-a-body-measure" class="level1">
+<h1>Panel A — body / measure</h1>
+<p><em>Age, BP, Cholesterol, MaximumHR are Quant. Sex and HeartDisease are Quals used to </em>split* the Quants.*</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/panel-A.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/panel-A.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 303 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
@@ -283,44 +297,15 @@ dbl (4): Age, BP, Cholesterol, MaximumHR
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>myPanelBData <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/panel-B.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 303 Columns: 5
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (4): Sex, ChestPain, ExerciseInducedAngina, HeartDisease
-lgl (1): BloodSugar
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>myPanelCData <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/panel-C.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 222 Columns: 2
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (1): country
-dbl (1): inf_mort_rate
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-</div>
-<p>Found tables train the mark. A campus Free Hunch, if we collect one, is a <strong>made</strong> panel of the same pair type — new people, old grammar. It does not replace A, B, or C.</p>
-</section>
-<section id="panel-a-body-measure" class="level1">
-<h1>Panel A — Body / Measure</h1>
-<p><em>Age, BP, Cholesterol, MaximumHR are Quant. Sex and HeartDisease are Quals used to </em>split* the Quants.*</p>
 <section id="see-the-table" class="level3">
 <h3 class="anchored" data-anchor-id="see-the-table">1. See the table</h3>
-<p>The Qualititave Variables In this table entail - HeartDiseases &amp; Sex (These were character variables mutated to factor variables- myPanelAMod)</p>
-<p>The Quantitative Variables in this table entail - Age, BP, Cholestrol &amp; MaximumHR</p>
-<p>A few pieces of data missing here are the Fatality rate and the fact that causality cannot be proved since this is not an RCT data set.</p>
+<p>What is a case? Which columns are Quant / Qual? What is missing?</p>
+<p>The Qualitative variable in this table entail - HeartDisease and Sex(These were character variables which were mutated to factor variables).</p>
+<p>the quantitative variables in this table are - Age, BP, Cholestrol, MaximumHR.</p>
+<p>A few piecies of data missing here are the fatality rate and the fact that casuality cannot be proved since this is not an RCT data set.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse() / inspect() / skim()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 303
 Columns: 6
@@ -331,7 +316,7 @@ $ Cholesterol  &lt;dbl&gt; 233, 286, 229, 250, 204, 236, 268, 354, 254, 203, 192
 $ MaximumHR    &lt;dbl&gt; 150, 108, 129, 187, 172, 178, 160, 163, 147, 155, 148, 15…
 $ HeartDisease &lt;chr&gt; "No", "Yes", "Yes", "No", "No", "No", "Yes", "No", "Yes",…</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Data summary</caption>
@@ -508,25 +493,8 @@ $ HeartDisease &lt;chr&gt; "No", "Yes", "Yes", "No", "No", "No", "Yes", "No", "Y
 </table>
 </div>
 </div>
-</section>
-<section id="ask" class="level3">
-<h3 class="anchored" data-anchor-id="ask">2. Ask</h3>
-<p>Questions Can Answer:</p>
-<ol type="1">
-<li><p>How does Cholestrol affect different sexes?</p></li>
-<li><p>Based on Sex and Age how does the MaximumHR fluctuate?</p></li>
-</ol>
-<p>3.How does the the age distribution of people having HeartDisease vary?</p>
-<ol start="4" type="1">
-<li>How does the number of men and women having BP vary over the years?</li>
-</ol>
-<p>Questions Cannot Answer:</p>
-<ol type="1">
-<li><p>For what % of the population is Cholestrol the reason for HeartDiseases?</p></li>
-<li><p>Does sex itself influence a person’s MaximumHR, or are the differences in MaximumHR actually related to other factors such as age?</p></li>
-</ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Sex =</span> <span class="fu">as.factor</span>(Sex))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Sex =</span> <span class="fu">as.factor</span>(Sex))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 303 × 6
      Age Sex       BP Cholesterol MaximumHR HeartDisease
@@ -543,7 +511,7 @@ $ HeartDisease &lt;chr&gt; "No", "Yes", "Yes", "No", "No", "No", "Yes", "No", "Y
 10    53 Male     140         203       155 Yes         
 # ℹ 293 more rows</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">HeartDisease =</span> <span class="fu">as.factor</span>(HeartDisease))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">HeartDisease =</span> <span class="fu">as.factor</span>(HeartDisease))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 303 × 6
      Age Sex       BP Cholesterol MaximumHR HeartDisease
@@ -560,8 +528,8 @@ $ HeartDisease &lt;chr&gt; "No", "Yes", "Yes", "No", "No", "No", "Yes", "No", "Y
 10    53 Male     140         203       155 Yes         
 # ℹ 293 more rows</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>myPanelAMod <span class="ot">&lt;-</span> myPanelAData <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Sex =</span> <span class="fu">as.factor</span>(Sex), <span class="at">HeartDisease =</span> <span class="fu">as.factor</span>(HeartDisease))</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(myPanelAMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>myPanelAMod <span class="ot">&lt;-</span> myPanelAData <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Sex =</span> <span class="fu">as.factor</span>(Sex), <span class="at">HeartDisease =</span> <span class="fu">as.factor</span>(HeartDisease))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(myPanelAMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 303
 Columns: 6
@@ -574,93 +542,84 @@ $ HeartDisease &lt;fct&gt; No, Yes, Yes, No, No, No, Yes, No, Yes, Yes, No, No, 
 </div>
 </div>
 </section>
+<section id="ask" class="level3">
+<h3 class="anchored" data-anchor-id="ask">2. Ask</h3>
+<p>One question <em>this</em> table can answer. One it cannot. Write both.</p>
+<p>Question can answer:</p>
+<p>1.How does cholestrol affect different sex?</p>
+<p>2.Based on sex and age how does the maximum Heartrate fluctuate?</p>
+<p>3.How does the age distribution of people with and without heart disease differ in this dataset?</p>
+<p>4.how does the number of men and women having BP vary over the years?</p>
+<p>Questions it cannot answer:</p>
+<p>1.For what % of the population is cholestrol the reason for heart disease?</p>
+<p>2.Does sex itself influence a person’s maximum heart rate, or are the differences in maximum heart rate actually related to other factors such as age or health?</p>
+</section>
 <section id="choose-a-mark" class="level3">
 <h3 class="anchored" data-anchor-id="choose-a-mark">3. Choose a mark</h3>
-<p>QUESTIONS THE GRAPHS ANSWER</p>
+<p>Questions can be answered:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_boxplot</span>(<span class="sc">~</span> Cholesterol, <span class="at">bins =</span> <span class="dv">50</span>, <span class="at">fill =</span> <span class="sc">~</span> Sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_boxplot</span>(<span class="sc">~</span> Cholesterol, <span class="at">bins =</span> <span class="dv">50</span>, <span class="at">fill =</span> <span class="sc">~</span> Sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/Chart 1 - Answers Question 1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/Chart1-Question1A-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_point</span>(MaximumHR<span class="sc">~</span>Age, <span class="at">color =</span> <span class="sc">~</span>Sex) <span class="sc">|&gt;</span> <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span> ) <span class="sc">|&gt;</span> <span class="fu">gf_density2d</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_point</span>(MaximumHR<span class="sc">~</span>Age, <span class="at">color =</span> <span class="sc">~</span>Sex) <span class="sc">|&gt;</span>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">|&gt;</span>  <span class="fu">gf_density_2d</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/Chart 2 - Answers question 2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/Chart2-Question2A-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_boxplot</span>(Age <span class="sc">~</span> HeartDisease)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_boxplot</span>(Age <span class="sc">~</span> HeartDisease)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/Chart 3 - Answers Question 3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/Chart3-Question3A-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>myPanelAMod <span class="sc">|&gt;</span> <span class="fu">gf_line</span>(BP<span class="sc">~</span> Age, <span class="at">bins =</span> <span class="dv">100</span>, <span class="at">color =</span>  <span class="sc">~</span>Sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>myPanelAMod <span class="sc">|&gt;</span> <span class="fu">gf_line</span>(BP <span class="sc">~</span> Age,<span class="at">bins=</span> <span class="dv">100</span>, <span class="at">color =</span>  <span class="sc">~</span>Sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/Chart 4 - Answers Question 4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/Chart4 - Question4A-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>QUESTIONS THE GRAPHS CANNOT ANSWER:</p>
+<p>Questions that cannot be answered:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_point</span>(Cholesterol<span class="sc">~</span>Sex,<span class="at">color =</span> <span class="sc">~</span>HeartDisease)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_point</span>(Cholesterol<span class="sc">~</span>Sex,<span class="at">color =</span> <span class="sc">~</span>HeartDisease)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/Chart 1 - Doesnt Answer the question-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/Chart1- Question1AN-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(Sex, MaximumHR, <span class="at">fill =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.08</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(Sex, MaximumHR, <span class="at">fill =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.08</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/Chart2-Question2AN-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="predict" class="level3">
-<h3 class="anchored" data-anchor-id="predict">4. Predict</h3>
-<p>What do we think we will see? One sentence, before Run.</p>
-</section>
-<section id="make" class="level3">
-<h3 class="anchored" data-anchor-id="make">5. Make</h3>
-<p>Human brick first. Optional: one AI prompt, pasted below, only for what section 3 named.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># human chunk</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Prompt we actually used</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ai_draft</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ours</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="say" class="level3">
-<h3 class="anchored" data-anchor-id="say">6. Say</h3>
-<p>Caption + one sentence we will stand behind. Title is a sentence, not a column name.</p>
-</section>
-<section id="limit" class="level3">
-<h3 class="anchored" data-anchor-id="limit">7. Limit</h3>
-<p>ī What this panel cannot do. Which kit table we refused to abuse.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">group_by</span>(Sex) <span class="sc">|&gt;</span>  <span class="fu">summarise</span>(<span class="at">mean_MaximumHR =</span> <span class="fu">mean</span>(MaximumHR, <span class="at">na.rm =</span> T))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">group_by</span>(Sex) <span class="sc">|&gt;</span> <span class="fu">summarize</span>( <span class="at">mean_MaximumHR =</span> <span class="fu">mean</span>(MaximumHR, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   Sex    mean_MaximumHR
@@ -668,7 +627,7 @@ $ HeartDisease &lt;fct&gt; No, Yes, Yes, No, No, No, Yes, No, Yes, Yes, No, No, 
 1 Female           151.
 2 Male             149.</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">group_by</span>(Sex) <span class="sc">|&gt;</span>  <span class="fu">summarise</span>(<span class="at">mean_Cholesterol =</span> <span class="fu">mean</span>(Cholesterol, <span class="at">na.rm =</span> T))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">group_by</span>(Sex) <span class="sc">|&gt;</span> <span class="fu">summarize</span>( <span class="at">mean_Cholesterol =</span> <span class="fu">mean</span>(Cholesterol, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   Sex    mean_Cholesterol
@@ -676,7 +635,7 @@ $ HeartDisease &lt;fct&gt; No, Yes, Yes, No, No, No, Yes, No, Yes, Yes, No, No, 
 1 Female             262.
 2 Male               240.</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">group_by</span>(Sex) <span class="sc">|&gt;</span>  <span class="fu">summarise</span>(<span class="at">mean_BP =</span> <span class="fu">mean</span>(BP, <span class="at">no.rm =</span> T))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">group_by</span>(Sex) <span class="sc">|&gt;</span> <span class="fu">summarize</span>( <span class="at">mean_BP =</span> <span class="fu">mean</span>(BP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   Sex    mean_BP
@@ -686,7 +645,7 @@ $ HeartDisease &lt;fct&gt; No, Yes, Yes, No, No, No, Yes, No, Yes, Yes, No, No, 
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(MaximumHR <span class="sc">~</span> Sex, <span class="at">data =</span> myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(MaximumHR <span class="sc">~</span> Sex, <span class="at">data =</span> myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -700,7 +659,7 @@ sample estimates:
 mean in group Female   mean in group Male 
             151.2268             148.8447 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(Cholesterol <span class="sc">~</span> Sex, <span class="at">data =</span> myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(Cholesterol <span class="sc">~</span> Sex, <span class="at">data =</span> myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -714,7 +673,7 @@ sample estimates:
 mean in group Female   mean in group Male 
             261.7526             239.6019 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(BP <span class="sc">~</span> Sex, <span class="at">data =</span> myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(BP <span class="sc">~</span> Sex, <span class="at">data =</span> myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -730,10 +689,37 @@ mean in group Female   mean in group Male
 </div>
 </div>
 </section>
+<section id="predict-what-do-we-think-we-will-see" class="level3">
+<h3 class="anchored" data-anchor-id="predict-what-do-we-think-we-will-see">4. Predict: What do we think we will see?</h3>
+<p>We predict that age, sex, blood pressure, and cholesterol will show noticeable differences in maximum heart rate and heart disease.</p>
+</section>
+<section id="say" class="level3">
+<h3 class="anchored" data-anchor-id="say">5. Say</h3>
+<p>Title: Age and sex show different patterns in heart health measures.</p>
+<p>Caption: The graphs show how age, sex, blood pressure, cholesterol, maximum heart rate, and heart disease are distributed and related across the sample.</p>
+<p>One sentence we will stand behind: The data shows differences between groups, but these patterns do not prove that one factor causes heart disease.</p>
+</section>
+<section id="limit" class="level3">
+<h3 class="anchored" data-anchor-id="limit">6. Limit</h3>
+<p>What this panel cannot do. Which kit table we refused to abuse. The data available to us in this panel cannot prove dependency in terms of causality between two or more variables.</p>
+</section>
 </section>
 <section id="panel-b-category-talk" class="level1">
 <h1>Panel B — category / talk</h1>
 <p><em>ChestPain, Sex, HeartDisease, ExerciseInducedAngina. Mosaic or stacked bar. No mean of ChestPain.</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>myPanelBData <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/panel-B.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 303 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (4): Sex, ChestPain, ExerciseInducedAngina, HeartDisease
+lgl (1): BloodSugar
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
 <section id="see-the-table-1" class="level3">
 <h3 class="anchored" data-anchor-id="see-the-table-1">1. See the table</h3>
 <p>What is a case? Which columns are Quant / Qual? What is missing?</p>
@@ -910,51 +896,258 @@ categorical variables:
 </table>
 </div>
 </div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>myPanelBData <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Sex =</span> <span class="fu">as.factor</span>(Sex))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 303 × 5
+   Sex    ChestPain        BloodSugar ExerciseInducedAngina HeartDisease
+   &lt;fct&gt;  &lt;chr&gt;            &lt;lgl&gt;      &lt;chr&gt;                 &lt;chr&gt;       
+ 1 Male   Typical angina   TRUE       No                    No          
+ 2 Male   Asymptomatic     FALSE      Yes                   Yes         
+ 3 Male   Asymptomatic     FALSE      Yes                   Yes         
+ 4 Male   Non-anginal pain FALSE      No                    No          
+ 5 Female Atypical angina  FALSE      No                    No          
+ 6 Male   Atypical angina  FALSE      No                    No          
+ 7 Female Asymptomatic     FALSE      No                    Yes         
+ 8 Female Asymptomatic     FALSE      Yes                   No          
+ 9 Male   Asymptomatic     FALSE      No                    Yes         
+10 Male   Asymptomatic     TRUE       Yes                   Yes         
+# ℹ 293 more rows</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>myPanelBData <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">HeartDisease =</span> <span class="fu">as.factor</span>(HeartDisease))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 303 × 5
+   Sex    ChestPain        BloodSugar ExerciseInducedAngina HeartDisease
+   &lt;chr&gt;  &lt;chr&gt;            &lt;lgl&gt;      &lt;chr&gt;                 &lt;fct&gt;       
+ 1 Male   Typical angina   TRUE       No                    No          
+ 2 Male   Asymptomatic     FALSE      Yes                   Yes         
+ 3 Male   Asymptomatic     FALSE      Yes                   Yes         
+ 4 Male   Non-anginal pain FALSE      No                    No          
+ 5 Female Atypical angina  FALSE      No                    No          
+ 6 Male   Atypical angina  FALSE      No                    No          
+ 7 Female Asymptomatic     FALSE      No                    Yes         
+ 8 Female Asymptomatic     FALSE      Yes                   No          
+ 9 Male   Asymptomatic     FALSE      No                    Yes         
+10 Male   Asymptomatic     TRUE       Yes                   Yes         
+# ℹ 293 more rows</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>myPanelBData <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">ChestPain =</span> <span class="fu">as.factor</span>(ChestPain))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 303 × 5
+   Sex    ChestPain        BloodSugar ExerciseInducedAngina HeartDisease
+   &lt;chr&gt;  &lt;fct&gt;            &lt;lgl&gt;      &lt;chr&gt;                 &lt;chr&gt;       
+ 1 Male   Typical angina   TRUE       No                    No          
+ 2 Male   Asymptomatic     FALSE      Yes                   Yes         
+ 3 Male   Asymptomatic     FALSE      Yes                   Yes         
+ 4 Male   Non-anginal pain FALSE      No                    No          
+ 5 Female Atypical angina  FALSE      No                    No          
+ 6 Male   Atypical angina  FALSE      No                    No          
+ 7 Female Asymptomatic     FALSE      No                    Yes         
+ 8 Female Asymptomatic     FALSE      Yes                   No          
+ 9 Male   Asymptomatic     FALSE      No                    Yes         
+10 Male   Asymptomatic     TRUE       Yes                   Yes         
+# ℹ 293 more rows</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>myPanelBData <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">ExerciseInducedAngina =</span> <span class="fu">as.factor</span>(ExerciseInducedAngina))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 303 × 5
+   Sex    ChestPain        BloodSugar ExerciseInducedAngina HeartDisease
+   &lt;chr&gt;  &lt;chr&gt;            &lt;lgl&gt;      &lt;fct&gt;                 &lt;chr&gt;       
+ 1 Male   Typical angina   TRUE       No                    No          
+ 2 Male   Asymptomatic     FALSE      Yes                   Yes         
+ 3 Male   Asymptomatic     FALSE      Yes                   Yes         
+ 4 Male   Non-anginal pain FALSE      No                    No          
+ 5 Female Atypical angina  FALSE      No                    No          
+ 6 Male   Atypical angina  FALSE      No                    No          
+ 7 Female Asymptomatic     FALSE      No                    Yes         
+ 8 Female Asymptomatic     FALSE      Yes                   No          
+ 9 Male   Asymptomatic     FALSE      No                    Yes         
+10 Male   Asymptomatic     TRUE       Yes                   Yes         
+# ℹ 293 more rows</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>myPanelBMod <span class="ot">&lt;-</span> myPanelBData <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Sex =</span> <span class="fu">as.factor</span>(Sex), <span class="at">HeartDisease =</span> <span class="fu">as.factor</span>(HeartDisease), <span class="at">ChestPain =</span> <span class="fu">as.factor</span>(ChestPain), <span class="at">ExerciseInducedAngina =</span> <span class="fu">as.factor</span>(ExerciseInducedAngina))</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(myPanelBMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 303
+Columns: 5
+$ Sex                   &lt;fct&gt; Male, Male, Male, Male, Female, Male, Female, Fe…
+$ ChestPain             &lt;fct&gt; Typical angina, Asymptomatic, Asymptomatic, Non-…
+$ BloodSugar            &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …
+$ ExerciseInducedAngina &lt;fct&gt; No, Yes, Yes, No, No, No, No, Yes, No, Yes, No, …
+$ HeartDisease          &lt;fct&gt; No, Yes, Yes, No, No, No, Yes, No, Yes, Yes, No,…</code></pre>
+</div>
+</div>
 </section>
 <section id="ask-1" class="level3">
 <h3 class="anchored" data-anchor-id="ask-1">2. Ask</h3>
-<p>One question <em>this</em> table can answer. One it cannot. Write both.</p>
+<p>Questions that can be answered:</p>
+<ol type="1">
+<li><p>What part of the population posses both Blood Sugar and Heart Diseases?</p></li>
+<li><p>How does the proportion of people with HeartDisease vary across different types of chest pain?</p></li>
+<li><p>How does the distribution of Exercise Induced Angina differ between males and females?</p></li>
+</ol>
+<p>Questions that cannot be answered:</p>
+<ol type="1">
+<li><p>How often does Exercise Induced Angina cause Chest Pain amongst men and women?</p></li>
+<li><p>Why do certain types of Chest Pain have higher rates of Heart Disease?</p></li>
+<li><p>What factors are responsible for certain people having heart diseases?</p></li>
+</ol>
 </section>
 <section id="choose-a-mark-1" class="level3">
 <h3 class="anchored" data-anchor-id="choose-a-mark-1">3. Choose a mark</h3>
 <p>Geom, map mark, or (later) test that matches the pair type. Name it before you code.</p>
+<p>Questions that can be answered:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>myPanelBData <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> BloodSugar, <span class="at">fill =</span> HeartDisease)) <span class="sc">+</span><span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Blood Sugar"</span>, <span class="at">y =</span> <span class="st">"Number of People"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/Chart1-Question 1B-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>myPanelBData <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ChestPain, <span class="at">fill =</span> HeartDisease)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Heart Disease Proportion Across Chest Pain Types"</span>,<span class="at">x =</span> <span class="st">"Chest Pain Type"</span>,<span class="at">y =</span> <span class="st">"Proportion"</span>,<span class="at">fill =</span> <span class="st">"Heart Disease"</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/Chart2-Question2B-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>myPanelBData <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ExerciseInducedAngina, <span class="at">fill =</span> HeartDisease)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>Sex) <span class="sc">+</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Exercise-Induced Angina"</span>, <span class="at">y =</span> <span class="st">"Number of People"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/Chart3-Question3B-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Questions that cannot be answered:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span><span class="fu">structable</span>(ChestPain <span class="sc">~</span> ExerciseInducedAngina <span class="sc">+</span> Sex, <span class="at">data =</span> myPanelBData) <span class="sc">|&gt;</span> vcd<span class="sc">::</span><span class="fu">mosaic</span>(<span class="at">labeling =</span> <span class="fu">labeling_values</span>(), <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">type =</span> <span class="st">"expected"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/Chart1-Question1BN-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>myPanelBData <span class="sc">|&gt;</span> </span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ChestPain, <span class="at">fill =</span> HeartDisease)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Chest Pain"</span>, <span class="at">y =</span> <span class="st">"Number of People"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/Chart2-Question 2BN-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span><span class="fu">structable</span>(ExerciseInducedAngina <span class="sc">~</span> BloodSugar, <span class="at">data =</span> myPanelBData) <span class="sc">|&gt;</span> vcd<span class="sc">::</span><span class="fu">mosaic</span>(<span class="at">labeling =</span> labeling_values, <span class="at">shade =</span> <span class="cn">TRUE</span>,<span class="at">gp =</span> shading_Friendly, <span class="at">type =</span> <span class="st">"expected"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/Chart3-Question3BN-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Statistic</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">xchisq.test</span>(BloodSugar <span class="sc">~</span> ExerciseInducedAngina, <span class="at">data =</span> myPanelBData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test with Yates' continuity correction
+
+data:  x
+X-squared = 0.075367, df = 1, p-value = 0.7837
+
+   29       16   
+( 30.30) ( 14.70)
+[0.0210] [0.0432]
+&lt;-0.236&gt; &lt; 0.338&gt;
+   
+  175       83   
+(173.70) ( 84.30)
+[0.0037] [0.0075]
+&lt; 0.098&gt; &lt;-0.141&gt;
+   
+key:
+    observed
+    (expected)
+    [contribution to X-squared]
+    &lt;Pearson residual&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">xchisq.test</span>(ChestPain <span class="sc">~</span> ExerciseInducedAngina, <span class="at">data =</span> myPanelBData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  x
+X-squared = 66.009, df = 3, p-value = 3.052e-14
+
+   64       80   
+(96.95)  (47.05) 
+[11.20]  [23.08] 
+&lt;-3.35&gt;  &lt; 4.80&gt; 
+   
+   46        4   
+(33.66)  (16.34) 
+[ 4.52]  [ 9.32] 
+&lt; 2.13&gt;  &lt;-3.05&gt; 
+   
+   75       11   
+(57.90)  (28.10) 
+[ 5.05]  [10.41] 
+&lt; 2.25&gt;  &lt;-3.23&gt; 
+   
+   19        4   
+(15.49)  ( 7.51) 
+[ 0.80]  [ 1.64] 
+&lt; 0.89&gt;  &lt;-1.28&gt; 
+   
+key:
+    observed
+    (expected)
+    [contribution to X-squared]
+    &lt;Pearson residual&gt;</code></pre>
+</div>
+</div>
+<p>Observations and Conclusions Drawn:</p>
+<p>Blood Sugar ~ Exercise Induced Angina- The above test proves that there is no significant correlation between the two variables. It states that the Blood Sugar and Exercise Induced Angina are independent of each other. Further since the p value exceeds 0.5 it fails to prove the fact that nothing is happening.</p>
+<p>Chest Pain ~ Exercise Induced Angina- The above test proves that there is strong association between the two variables. Chest Pain and Exercise Induced Angina are Highly dependent on each other. The low p value proves the hypothesis that nothing is happening.</p>
 </section>
-<section id="predict-1" class="level3">
-<h3 class="anchored" data-anchor-id="predict-1">4. Predict</h3>
-<p>What do we think we will see? One sentence, before Run.</p>
-</section>
-<section id="make-1" class="level3">
-<h3 class="anchored" data-anchor-id="make-1">5. Make</h3>
-<p>Human brick first. Optional: one AI prompt, pasted below, only for what section 3 named.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># human chunk</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Prompt we actually used</span></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ai_draft</span></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ours</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="predict-what-do-we-think-we-will-see-1" class="level3">
+<h3 class="anchored" data-anchor-id="predict-what-do-we-think-we-will-see-1">4. Predict: What do we think we will see?</h3>
+<p>We predict that heart disease will be more common among people with certain chest pain types, exercise-induced angina, and high blood sugar.</p>
 </section>
 <section id="say-1" class="level3">
-<h3 class="anchored" data-anchor-id="say-1">6. Say</h3>
-<p>Caption + one sentence we will stand behind. Title is a sentence, not a column name.</p>
+<h3 class="anchored" data-anchor-id="say-1">5. Say</h3>
+<p>Title: Heart disease shows different patterns across several health-related factors.</p>
+<p>Caption: The graphs compare heart disease with chest pain, blood sugar, exercise-induced angina, and sex to identify patterns within the sample.</p>
+<p>One sentence we will stand behind: The data shows associations between heart disease and these factors, but it cannot tell us what causes heart disease.</p>
 </section>
 <section id="limit-1" class="level3">
-<h3 class="anchored" data-anchor-id="limit-1">7. Limit</h3>
-<p>What this panel cannot do. Which kit table we refused to abuse.</p>
+<h3 class="anchored" data-anchor-id="limit-1">6. Limit</h3>
+<p>What this panel cannot do: This panel can show associations between the variables, but it cannot explain why these patterns occur or prove that one factor causes heart disease.</p>
+<p>Which kit table we refused to abuse: The contingency table.</p>
 </section>
 </section>
 <section id="panel-c-place" class="level1">
 <h1>Panel C — place</h1>
 <p><em>Join <code>country</code> to <code>rnaturalearth</code> / <code>tmap::World</code>. Fill is infant mortality (a rate).</em></p>
-<p>Geometry is not in the CSV. Join in R, then use the same seven headings.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(sf)</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(rnaturalearth)</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co"># world &lt;- ne_countries(scale = "medium", returnclass = "sf")</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # join on country name; list the unmatched labels</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="see-the-table-2" class="level3">
-<h3 class="anchored" data-anchor-id="see-the-table-2">1. See the table</h3>
-<p>What is a case? Which columns are Quant / Qual? What is missing?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse() / inspect() / skim()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>myPanelCData <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/panel-C.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>myPanelCData <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/panel-C.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 222 Columns: 2
 ── Column specification ────────────────────────────────────────────────────────
@@ -965,14 +1158,36 @@ dbl (1): inf_mort_rate
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(myPanelCData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Geometry is not in the CSV. Join in R, then use the same seven headings.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(sf)</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(rnaturalearth)</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="co"># world &lt;- ne_countries(scale = "medium", returnclass = "sf")</span></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # join on country name; list the unmatched labels</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="see-the-table-2" class="level3">
+<h3 class="anchored" data-anchor-id="see-the-table-2">1. See the table</h3>
+<p>What is a case? Which columns are Quant / Qual? What is missing?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse() / inspect() / skim()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>myPanelCData <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/panel-C.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 222 Columns: 2
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): country
+dbl (1): inf_mort_rate
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(myPanelCData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 222
 Columns: 2
 $ country       &lt;chr&gt; "Afghanistan", "Niger", "Mali", "Somalia", "Central Afri…
 $ inf_mort_rate &lt;dbl&gt; 121.63, 109.98, 109.08, 103.72, 97.17, 94.40, 93.61, 83.…</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(myPanelCData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(myPanelCData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Data summary</caption>
@@ -1109,18 +1324,18 @@ $ inf_mort_rate &lt;dbl&gt; 121.63, 109.98, 109.08, 103.72, 97.17, 94.40, 93.61,
 <h3 class="anchored" data-anchor-id="choose-a-mark-2">3. Choose a mark</h3>
 <p>Geom, map mark, or (later) test that matches the pair type. Name it before you code.</p>
 </section>
-<section id="predict-2" class="level3">
-<h3 class="anchored" data-anchor-id="predict-2">4. Predict</h3>
+<section id="predict" class="level3">
+<h3 class="anchored" data-anchor-id="predict">4. Predict</h3>
 <p>What do we think we will see? One sentence, before Run.</p>
 </section>
-<section id="make-2" class="level3">
-<h3 class="anchored" data-anchor-id="make-2">5. Make</h3>
+<section id="make" class="level3">
+<h3 class="anchored" data-anchor-id="make">5. Make</h3>
 <p>Human brick first. Optional: one AI prompt, pasted below, only for what section 3 named.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># human chunk</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Prompt we actually used</span></span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ai_draft</span></span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ours</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># human chunk</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Prompt we actually used</span></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ai_draft</span></span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ours</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="say-2" class="level3">
 <h3 class="anchored" data-anchor-id="say-2">6. Say</h3>
@@ -1141,7 +1356,7 @@ $ inf_mort_rate &lt;dbl&gt; 121.63, 109.98, 109.08, 103.72, 97.17, 94.40, 93.61,
 <li>Limits: sample, missingness, the test we did not run</li>
 <li>Gift for the steal-this strip (palette, annotation, join trick)</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sessionInfo()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sessionInfo()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>TODAY: Changes made in my file</p>
 
 
