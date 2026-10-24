@@ -1,7 +1,7 @@
 ---
 title: "Group 1 — Clinic bodies"
 subtitle: "Studio wall"
-author: "Vidhi, Sadiya, Madhumita, Dheemant"
+author: "Vidhi"
 format:
   html:
     toc: true
@@ -25,12 +25,21 @@ This folder is ours for the ten days. Three tables, three shapes.
 A does not grow a mosaic. B does not grow a honest histogram of chest pain. C is a rate, not a headcount.
 
 We load from this folder:
+{{< include _setup.qmd >}}
+
 ```{r}
 #| label: Set Up Chunk
 library(tidyverse)
 library(mosaic)
 library(skimr)
 library(vcd)
+library(sf)
+library(rnaturalearth)
+library(countrycode)
+library(tibble)
+library(dplyr)
+library(leaflet)
+library(magrittr)
 ```
 
 Found tables train the mark. A campus Free Hunch, if we collect one, is a **made** panel of the same pair type — new people, old grammar. It does not replace A, B, or C.
@@ -309,77 +318,314 @@ The contingency table.
 #| label: My Panel C Data
 myPanelCData <-  read_csv(file = "data/panel-C.csv")
 ```
-Geometry is not in the CSV. Join in R, then use the same seven headings.
-
-```r
-# library(sf)
-# library(rnaturalearth)
-# world <- ne_countries(scale = "medium", returnclass = "sf")
-# # join on country name; list the unmatched labels
-```
 
 
 ### 1. See the table
 
 What is a case? Which columns are Quant / Qual? What is missing?
 
-```r
-# glimpse() / inspect() / skim()
+The quantitative variable in this dataset is - Infant mortality Rate
+
+The qualitative variable in this dataset is - The country name 
+
+Geometry as a Multipolygon was added after merging the world selected dataset.
+
+A few variables that are missing are time line, gender, age of death, etc.
+
+
+```{r}
+#| label: Table for Panel C
+
+glimpse(myPanelCData)
+inspect(myPanelCData)
+skim(myPanelCData)
+```
+
+```{r}
+world <- rnaturalearth::ne_countries(returnclass = "sf")
+glimpse(world)
+world |> ggformula::gf_sf(geometry = ~geometry)
+world_selected <- world |> dplyr::select(name, geometry)
+glimpse(world_selected)
 ```
 
 
 ```{r}
-myPanelCData <-  read_csv(file = "data/panel-C.csv")
-glimpse(myPanelCData)
-skim(myPanelCData)
+#| label: Finding Missing Countries
+missing_countries <- setdiff(unique(myPanelCData$country), unique(world_selected$name))
+print(missing_countries)
+length(missing_countries)
+```
+
+
+```{r}
+#| label: Cleaning Spatial Dataset
+
+world_hires    <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
+world_selected <- world_hires |> dplyr::select(name, iso_a3_eh, geometry)
+
+```
+
+
+```{r}
+#| label: Merging Datasets Together
+panelC_fixed <- myPanelCData |>
+  dplyr::filter(country != "European Union") |>   # not a country, so no polygon exists
+  dplyr::mutate(
+    
+    iso3 = countrycode::countrycode(country, origin = "country.name", destination = "iso3c",
+             custom_match = c("FaroeIslands"            = "FRO",
+                              "NorthernMariana Islands" = "MNP",
+                              "Virgin Islands"          = "VIR")),
+    
+    country = dplyr::case_match(country,
+      "United States"                     ~ "United States of America",
+      "Congo, Democratic Republic of the" ~ "Dem. Rep. Congo",
+      "Congo, Republic of the"            ~ "Congo",
+      "Central African Republic"          ~ "Central African Rep.",
+      "Equatorial Guinea"                 ~ "Eq. Guinea",
+      "South Sudan"                       ~ "S. Sudan",
+      "Gambia, The"                       ~ "Gambia",
+      "Cote d'Ivoire"                     ~ "C\u00f4te d'Ivoire",
+      "Swaziland"                         ~ "eSwatini",
+      "Western Sahara"                    ~ "W. Sahara",
+      "Burma"                             ~ "Myanmar",
+      "Korea, North"                      ~ "North Korea",
+      "Korea, South"                      ~ "South Korea",
+      "Dominican Republic"                ~ "Dominican Rep.",
+      "Solomon Islands"                   ~ "Solomon Is.",
+      "Bahamas, The"                      ~ "Bahamas",
+      "Bosnia and Herzegovina"            ~ "Bosnia and Herz.",
+      "Macedonia"                         ~ "North Macedonia",
+      "Czech Republic"                    ~ "Czechia",
+      "West Bank"                         ~ "Palestine",   # the map has one polygon for both
+      "Gaza Strip"                        ~ "Palestine",
+      .default = country)
+  ) |>
+
+  dplyr::group_by(country, iso3) |>
+  dplyr::summarise(inf_mort_rate = mean(inf_mort_rate), .groups = "drop")
+
+
+myPanelCMod <- world_selected |>
+  dplyr::left_join(panelC_fixed |> dplyr::select(country, rate_name = inf_mort_rate),
+                   by = c("name" = "country")) |>
+  dplyr::left_join(panelC_fixed |> dplyr::filter(!is.na(iso3)) |> dplyr::select(iso3, rate_iso = inf_mort_rate),
+                   by = c("iso_a3_eh" = "iso3")) |>
+  dplyr::mutate(inf_mort_rate = dplyr::coalesce(rate_name, rate_iso)) |>
+  dplyr::select(name, iso_a3_eh, inf_mort_rate, geometry)
+
+glimpse(myPanelCMod)
 ```
 
 ### 2. Ask
 
-One question *this* table can answer. One it cannot. Write both.
+Questions that can be answered:
+
+1.Which continent has the countries with maximum infant mortality rate?
+
+2. What is the distribution of infant mortality rate across the European countries?
+
+Questions that cannot be answered:
+
+1. How has the infant mortality rate changed over time across genders?
+
+2. How does the infant mortality rate differ across a country through its different parts- urban/ rural?
+
 
 ### 3. Choose a mark
-
 Geom, map mark, or (later) test that matches the pair type. Name it before you code.
 
-### 4. Predict
+Questions that can be answered:
 
-What do we think we will see? One sentence, before Run.
+```{r}
+#| label: Chart 1- Question1A
+still_missing <- panelC_fixed |>
+  dplyr::filter(!(country %in% world_selected$name), !(iso3 %in% world_selected$iso_a3_eh))
+print(still_missing$country)
 
-### 5. Make
-
-Human brick first. Optional: one AI prompt, pasted below, only for what section 3 named.
-
-```r
-# human chunk
-
-# ## Prompt we actually used
-# ai_draft
-# ours
+myPanelCMod |> sf::st_drop_geometry() |> dplyr::filter(is.na(inf_mort_rate)) |> dplyr::pull(name)
+myPanelCMod |> gf_sf(geometry = ~geometry, fill = ~inf_mort_rate)
 ```
 
-### 6. Say
+```{r}
+#| label: Chart 2 - Question2A
+myPanelCData |> filter(countrycode(country, origin= "country.name", destination = "continent" )== "Europe") |>  gf_histogram(~inf_mort_rate, fill =  ~country, bins = 100)
+```
 
-Caption + one sentence we will stand behind. Title is a sentence, not a column name.
+Questions that cannot be answered:
+```{r}
+#| label: Chart 1- Question 1AN
+myPanelCData |>filter(country=="Canada") |> gf_boxplot(~inf_mort_rate)
+```
 
-### 7. Limit
+```{r}
+#| label: Chart 2- Question 2AN
+myPanelCMod |> sf::st_centroid() |> dplyr::mutate(lon = sf::st_coordinates(geometry)[,1], lat = sf::st_coordinates(geometry)[,2]) |> gf_point(lat ~ lon, color = ~inf_mort_rate) |> gf_density_2d()
 
-What this panel cannot do. Which kit table we refused to abuse.
+```
+
+
+### 4. Predict
+We expected to see geographical disparity in increased infant mortality rates, however the obtained density chart portayed similar levels of infant mortality rates within close proximity.
+
+### 5. Say
+Title:
+Infant mortality rates vary vastly across countries
+
+Caption:
+The graphs help understand infant mortality rates accross different countries, however it is not possible to zoom into regions within these countries.
+
+One sentence we will stand behind:
+The data correlates the names of countries to their geometry, while using a colour gradient to portray infant mortality rate.
+
+The continent of Africa has the highest mortality rate, however what astonishes me is the fact that the data provided can only point to so much - one cannot zoom in to see what locality has higher infant mortality rate nor see the development over time.
+
+
+### 6. Limit
+
+This panel cannot prove causality, nor does it allow us to plot bar graphs or histograms without over complicating understanding- the data set is limited to 1 qual and 1 quan variable to which geometry has been associated.
 
 
 # Conclusion
 
-What the spine looks like after three panels.
+Across our three panels, we explored patterns in health, categorical variables, and differences between countries. We used boxplots, bar charts, scatterplots,and density maps to understand how variables relate to one another.
 
 - The question we will defend in ninety seconds
-- What we will **not** claim
-- Which lines were human, which were machine
-- Limits: sample, missingness, the test we did not run
-- Gift for the steal-this strip (palette, annotation, join trick)
+How can data visualisation help us identify patterns without assuming that one variable causes another? Further how can we be expected to plot graphs without necessary data?
 
-```r
-# sessionInfo()
+- What we will **not** claim
+We will not claim that association proves causation, however in a human mind identifying patterns often associates one factor to be the cause of another, hence our graphs only portray patterns that a human mind can pick up on - they in no was display factual correlation.
+
+- Which lines were human, which were machine
+We chose the questions and interpreted the patterns as a group, while R and its packages helped us create graphs, conduct statistical tests, and present the data. The tools helped with the process, but interpreting the results required our own judgement. Further even while coding if we used AI to generate a code- after using it to understand what needs to be done, we simplified the code to functions we had learned and coded it ourselves.
+
+HOWEVER THE COUNTRY CODE PART OF PANEL C IS PARTIALLY AI GENERATED
+
+- Limits: sample, missingness, the test we did not run
+Our conclusions are limited by the available variable, missing data for a particular year or country cannot be plotted by us, further any data required to prove causality or any data used while merging 2 data frames is sensitive to deal with and requires caution.
+
+
+- Gift for the steal-this strip (palette, annotation, join trick)
+Creating a uniform theme for fonts and colours helped with consistency, we realised that data was much easier to follow and read . 
+
+Overall, we learned that a good graph is not just about appearance. It should answer a meaningful question, represent the data honestly, and make its limitations clear. Further we also learned how we need to pay attention to details like syntax and spellings while being daring enough to experiment with different codes.
+
+
+
+
+## Panel D - Erin Brokovich - Interactive Data Map
+
+
+```{r}
+plume <- tibble(
+    lng = c(-117.165, -117.157, -117.165, -117.178, -117.190,
+            -117.205, -117.218, -117.222, -117.212, -117.198,
+            -117.182, -117.172),
+    lat = c(34.900, 34.906, 34.918, 34.932, 34.945,
+            34.958, 34.962, 34.952, 34.938, 34.922,
+            34.907, 34.898)
+)
+
+landmarks <- tibble(
+    name = c("PG&E Hinkley Compressor Station", "Hinkley"),
+    lat  = c(34.9030, 34.95),
+    lng  = c(-117.1612, -117.2)
+)
 ```
-TODAY: Changes made in my file
+
+
+Chromium Concentration For Each Home
+
+```{r}
+hinkley_homes <- tibble(
+    name = c("Jensen Family", "Robinson Family",
+             "Family 1(Hypothetical)", "Family 2(Hypothetical)"),
+    pop  = c(3, 2, 4, 5),
+    lat  = c(34.9512, 34.9514, 34.9480, 34.9440),
+    lng  = c(-117.2051, -117.2046, -117.2030, -117.2090),
+    cr6_ppb = c(3.14, 2.85, 1.20, 0.45) 
+)
+
+hinkley_symptoms <- tibble(
+    name = c("Jensen Family", "Jensen Family", "Jensen Family",
+             "Robinson Family", "Robinson Family",
+             "Family 1(Hypothetical)", "Family 1(Hypothetical)",
+             " Family 2(Hypothetical)", "Family 2(Hypothetical)"),
+    symptom = c("Tumors", "Hysterectomy", "Hodgkin's disease",
+                "Breast cancer", "Miscarriages",
+                "Nosebleeds", "Skin rashes",
+                "Chronic pain", "Ulcers")
+)
+```
+
+Merging Symptoms into hinkley_homes
+
+```{r}
+hinkley_homes <- hinkley_homes |> 
+    left_join(
+        hinkley_symptoms |> 
+            group_by(name) |> 
+            summarise(symptoms = paste(symptom, collapse = ", ")),
+        by = "name"
+    )
+```
+
+Adding Font & Colour
+
+```{r}
+custom_font   <- "Times New Roman, sans-serif" 
+text_color    <- "#6a5acd"           
+bg_color      <- "#e6e6fa"           
+border_color  <- "#8a2be2"          
+
+leaflet() |> 
+    addTiles() |> 
+    setView(lng = -117.2, lat = 34.95, zoom = 12) |> 
+    addPolygons(data = plume, lng = ~lng, lat = ~lat,
+                color = "darkgreen", weight = 2, fillOpacity = 0.4, fillColor = "lightgreen") |> 
+    addMarkers(data = landmarks, popup = ~name) |> 
+    addCircles(data = hinkley_homes, radius = 150,
+               color = "lightblue", fillColor = "purple", fillOpacity = 0.3) |> 
+    addCircleMarkers(
+        data = hinkley_homes,
+        radius = ~pop * 3,
+        color = "darkgreen",
+        fillColor = ~ifelse(cr6_ppb > 2.0, "lightgreen", "lightblue"), # Color-code based on Cr-6 level
+        stroke = TRUE,
+        weight = 1,
+        fillOpacity = 0.8,
+        label = ~paste0(
+            "<div style='font-family: ", custom_font, "; ",
+            "color: ", text_color, "; ",
+            "background-color: ", bg_color, "; ",
+            "border: 1px solid ", border_color, "; ",
+            "padding: 6px; border-radius: 4px;'>",
+            "<b>", name, "</b><br/>",
+            "Population: ", pop, "<br/>",
+            "<b>Chromium-6:</b> ", cr6_ppb, " ppb<br/>",
+            "<b>Symptoms:</b> ", symptoms,
+            "</div>"
+        ) %>% lapply(htmltools::HTML),
+        labelOptions = labelOptions(
+            noHide = TRUE,
+            direction = "top",
+            style = list("box-shadow" = "2px 2px rgba(0,0,0,0.2)")
+        )
+    )
+```
+This Chart Represents the families affected by the Chromium- 6 that Erin spoke to during the course of the film - it puts forth the symptoms displayed by the families as well as the amounts of Chromium ingested.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
