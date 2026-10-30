@@ -1,0 +1,61 @@
+count,gender,program,AI_belief
+1,boy,art ,no
+2,girl,art ,no
+3,boy,design,yes
+4,girl,design,yes
+5,boy,art ,yes
+6,girl,art ,yes
+7,boy,design,yes
+8,girl,design,yes
+9,boy,art ,yes
+10,girl,art ,no
+11,boy,design,yes
+12,girl,design,no
+13,boy,art ,no
+14,girl,art ,no
+15,boy,design,no
+16,girl,design,yes
+17,boy,art ,no
+18,girl,art ,no
+19,boy,design,yes
+20,girl,design,no
+21,boy,art ,no
+22,girl,art ,no
+23,boy,design,no
+24,girl,design,no
+25,boy,art ,yes
+26,girl,art ,yes
+27,boy,design,yes
+28,girl,design,no
+29,boy,art ,no
+30,girl,art ,no
+31,boy,design,yes
+32,girl,design,no
+33,boy,art ,no
+34,girl,art ,no
+35,boy,design,no
+36,girl,design,yes
+37,boy,art ,yes
+38,girl,art ,no
+39,boy,design,yes
+40,girl,design,no
+41,boy,art ,yes
+42,girl,art ,no
+43,boy,design,no
+44,girl,design,no
+45,boy,art ,no
+46,girl,art ,no
+47,boy,design,yes
+48,girl,design,no
+49,boy,art ,yes
+50,girl,art ,yes
+51,boy,design,yes
+52,girl,design,no
+53,boy,art ,yes
+54,girl,art ,yes
+55,boy,design,yes
+56,girl,design,no
+57,boy,art ,yes
+58,girl,art ,no
+59,boy,design,yes
+60,girl,design,yes

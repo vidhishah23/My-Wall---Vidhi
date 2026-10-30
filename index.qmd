@@ -40,6 +40,7 @@ library(tibble)
 library(dplyr)
 library(leaflet)
 library(magrittr)
+library(supernova)
 ```
 
 Found tables train the mark. A campus Free Hunch, if we collect one, is a **made** panel of the same pair type — new people, old grammar. It does not replace A, B, or C.
@@ -618,10 +619,266 @@ This Chart Represents the families affected by the Chromium- 6 that Erin spoke t
 
 
 
+## Panel E 
+
+## Part 1 - Friends Vs Modern family Vs House
+
+```{r}
+#| label: My Panel E.1 Data
+myPanelE1Data <-  read_csv(file = "data/panel-E.1.csv") |> janitor::clean_names()
+
+```
+
+```{r}
+#| label: Table for panel E.1
+glimpse(myPanelE1Data)
+inspect(myPanelE1Data)
+skim(myPanelE1Data)
+```
+
+```{r}
+#| label: Change to factor(Panel E.1)
+myPanelE1Mod <- myPanelE1Data |> dplyr::mutate(friends = as.factor(friends), house = as.factor(house),modern_family = as.factor(modern_family))
+
+glimpse(myPanelE1Mod)
+```
+
+###Ask
+
+How do the ratings differ between Friends, House, and Modern Family?
+
+```{r}
+#| label: Reshape Panel E.1
+myPanelE1Long <- myPanelE1Mod |> tidyr::pivot_longer(cols = c(friends, house, modern_family),names_to = "show",values_to = "scores") |>
+dplyr::mutate(scores = readr::parse_number(as.character(scores)))
+
+glimpse(myPanelE1Long)
+```
+
+```{r}
+#| label: Average Ratings Panel E.1
+myPanelE1Mean <- myPanelE1Long |> dplyr::group_by(show) |> dplyr::summarise(mean_score = mean(scores, na.rm = TRUE))
+
+myPanelE1Mean
+```
+
+```{r}
+#| label: Bar chart Panel E.1
+ggformula::gf_col(mean_score ~ show,fill = ~show, data = myPanelE1Mean) |>
+  gf_labs( title = "Modern Family Has the Highest Average Rating",
+    subtitle = "Average ratings given by students out of 10",
+    x = "TV Show",
+    y = "Average Rating",
+    caption = "Based on ratings provided by students in the dataset."
+  )
+
+```
+
+
+
+```{r}
+#| label: ANOVA Panel E.1
+aov(scores ~ show, data = myPanelE1Long) |> summary()
+```
 
 
 
 
+
+### Conclusion
+
+Overall, Modern Family received the highest average rating, followed by Friends and House. This suggests that Modern Family was the most highly rated of the three shows among the students who responded. However, the number of ratings varied between shows, and the results represent only the students in this dataset. The analysis helps compare their ratings, but it cannot explain why students preferred one show over another.
+
+## Part 2 - Are SMI students more introverted than MIT students?
+
+```{r}
+#| label: My Panel E.2 Data
+myPanelE2Data <-  read_csv(file = "data/panel-E.2.csv")
+```
+
+```{r}
+#| label: Table for Panel E.2
+glimpse(myPanelE2Data)
+inspect(myPanelE2Data)
+skim(myPanelE2Data)
+```
+
+```{r}
+#| label: Change to Factor( Panel E.2)
+myPanelE2Mod <- myPanelE2Data |> dplyr::mutate(department = as.factor(department), `mbti-type` = as.factor(`mbti-type`), `social-orientation`= as.factor(`social-orientation`))
+glimpse(myPanelE2Mod)
+```
+
+```{r}
+#| label: Chart1-E.2
+myPanelE2Mod |> gf_bar(~`mbti-type`, fill = ~department)
+```
+
+```{r}
+#| label: Chart2 -E.2
+myPanelE2Mod |> gf_bar(~`social-orientation`, fill = ~department, position = "dodge")
+
+```
+
+```{r}
+#| label: Chisquaretest for panel E.2
+mosaic::xchisq.test(`social-orientation` ~ department, data = myPanelE2Mod)
+
+```
+
+### Conclusion
+
+After analysis of the data, we were able to find out that SMI students are, on average, more introverted than MIT students.
+
+
+## Part 3 - Belief in AI, Art Vs Design
+
+```{r}
+#| label: My Panel E.3 Data
+myPanelE3Data <-  read_csv(file = "data/panel-E.3.csv")
+
+```
+
+
+```{r}
+#| label: Table for Panel E.3
+glimpse(myPanelE3Data)
+inspect(myPanelE3Data)
+skim(myPanelE3Data)
+```
+
+```{r}
+#| label: Change to Factor(Panel E.3)
+myPanelE3Mod <- myPanelE3Data |> dplyr::mutate(gender = as.factor(gender), program = as.factor(program), AI_belief= as.factor(AI_belief))
+glimpse(myPanelE3Mod)
+```
+
+```{r}
+#| label: Chisquaretest for panel E.3
+mosaic::xchisq.test(AI_belief ~ gender, data = myPanelE3Mod)
+
+```
+
+```{r}
+#| label: Chart1 - E.3
+vcd::mosaic(~ gender + AI_belief, data = myPanelE3Mod) 
+```
+
+###Conclusion
+The analysis explored whether boys are more likely than girls to believe in AI. The mosaic plot suggests that a higher proportion of boys believe in AI compared to girls in this sample of 60 respondents. This indicates a possible association between gender and AI belief. However, the findings are limited to the respondents included in this dataset and cannot necessarily be generalised to a larger population.
+
+
+## Part 4- Do girls have a higher monthly allowance than guys?
+
+```{r}
+#| label: My Panel E.4 Data
+myPanelE4Data <-  read_csv(file = "data/panel-E.4.csv")
+
+```
+
+
+```{r}
+#| label: Table for Panel E.4
+glimpse(myPanelE4Data)
+inspect(myPanelE4Data)
+skim(myPanelE4Data)
+```
+
+
+```{r}
+#| label: Change to Factor (Panel E.4)
+myPanelE4Mod <- myPanelE4Data |> dplyr::mutate(gender = as.factor(gender))
+glimpse(myPanelE4Mod)
+```
+
+
+```{r}
+#| label: Chart1 - E.4
+names(myPanelE4Mod)
+myPanelE4Mod |> gf_density(~ allowance, fill = ~gender)
+```
+
+
+```{r}
+#| label: T Test for Panel E.4
+mosaic::t.test(allowance ~ gender, data = myPanelE4Mod)
+```
+
+
+## Conclusion
+According to the T.test, the p value is 0.49 which is much higher than 0.05. Which means that being a boy or a girl has no affect on monthly allowance, allowance is independent of gender and both genders recieve almost an equal allowance.
+
+
+
+## Part 5- Is it easier for the students of SMI to get into a relationship than MIT?
+```{r}
+#| label: My Panel E.5 data
+myPanelEData <-  read_csv(file = "data/panel-E.csv") 
+```
+
+```{r}
+#| label: Table for Panel E.5
+glimpse(myPanelEData)
+inspect(myPanelEData)
+skim(myPanelEData)
+```
+
+```{r}
+#| label: Change to factor(Panel E.5)
+# myPanelEData |> mutate(department = as.factor(department))
+# myPanelEData |> mutate(relationship_status = as.factor(relationship_status))
+myPanelEMod <- myPanelEData |> dplyr::mutate(department = as.factor(department), relationship_status = as.factor(relationship_status))
+glimpse(myPanelEMod)
+```
+
+```{r}
+#| label: Chart1- E.5
+vcd::structable(relationship_status~ department , data = myPanelEMod) |> vcd::mosaic(shade = TRUE, type = "expected", gp = shading_Friendly())
+```
+
+```{r}
+#| label: Chisquaretest for panel E.5
+mosaic::xchisq.test(department ~ relationship_status, data = myPanelEMod)
+```
+
+### Conclusion
+
+Our investigation showed that the difference in relationship status between SMI and MIT respondents was small. The chi-square test did not provide sufficient evidence of an association between the two variables. This taught us that our initial hunches do not always match what the data reveals. We also realised that relationship status alone cannot explain how easy or difficult it is to get into a relationship. Ultimately, this exercise helped us understand the importance of questioning our assumptions and interpreting data carefully.
+
+## Part 6 - Do tatoos make a person look more attractive?
+
+
+```{r}
+myPanelE6Data <-  read_csv(file = "data/panel-E.6.csv")
+
+```
+
+```{r}
+glimpse(myPanelE6Data) 
+inspect(myPanelE6Data) 
+skim(myPanelE6Data)
+
+```
+
+```{r}
+myPanelE6Mod <- myPanelE6Data |> dplyr::mutate(gender = as.factor(gender), `has_tattoos?` = as.factor(`has_tattoos?`), opinion = as.factor(opinion))
+glimpse(myPanelE6Mod)
+```
+
+```{r}
+mosaic::xchisq.test(`has_tattoos?` ~ gender, data = myPanelE6Mod)
+
+```
+
+```{r}
+myPanelE6Mod |> ggformula::gf_bar( ~`has_tattoos?`, fill = ~gender, position = "dodge" )
+```
+
+###Conclusion
+
+After analysing the data, we found that men and women in this sample were equally likely to report having tattoos. Out of the 30 men, 15 reported having tattoos, and out of the 30 women, 15 reported having tattoos. This means that 50% of each group reported having tattoos.
+
+The chi-square test can be used to assess whether there is an association between gender and tattoo status. The results do not indicate a difference between the two groups in this sample. However, this does not establish that men and women are equally likely to have tattoos in the wider population. The dataset contains only 60 respondents, so the findings should be interpreted within that limitation.
 
 
 
